@@ -1,0 +1,27 @@
+package orderedStructures;
+
+public class Geometric extends Progression {
+
+	private double commonFactor; 
+	
+	public Geometric(double firstValue, double commonFactor) { 
+		super(firstValue); 
+		this.commonFactor = commonFactor; 
+	}
+	
+	@Override
+	public double nextValue() {
+		current = current * commonFactor; 
+		return current;
+	}
+
+	@Override
+	public String toString(){
+		return "Geom(3,2)";
+	}
+	
+//	@Override
+//	public double getTerm(int n){
+//		return nextValue()/2;
+//	}
+}
