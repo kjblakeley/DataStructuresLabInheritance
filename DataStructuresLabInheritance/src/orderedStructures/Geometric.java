@@ -10,18 +10,29 @@ public class Geometric extends Progression {
 	}
 	
 	@Override
-	public double nextValue() {
+	public double nextValue() throws IllegalStateException{
+		
+		if(firstValueFlag = false)
+			throw new IllegalStateException("Invalid; firstValue") ;
+		
 		current = current * commonFactor; 
 		return current;
 	}
+	
+	public double getTerm(int n) throws IndexOutOfBoundsException { 
+		if (n <= 0) 
+			throw new IndexOutOfBoundsException("printAllTerms: Invalid argument value = " + n); 
 
-	@Override
-	public String toString(){
-		return "Geom(3,2)";
+		double value = this.firstValue()* Math.pow(commonFactor, n-1);
+		
+		return value; 
 	}
 	
-//	@Override
-//	public double getTerm(int n){
-//		return nextValue()/2;
-//	}
+	public String toString(){
+		return "Geom("+(int)this.firstValue() +"," +(int)this.commonFactor+")";
+	}
+
+	
+
+	
 }

@@ -20,14 +20,20 @@ public class ProgressionTester2 {
 			@param p the progression
 			@param n the number of terms to consider
 	 **/ 
-	private static void printSumOfTerms(Progression p, int n) { 
-		
+	private static void printSumOfTerms(
+			Progression p, int n) 
+	{ 
 		// pre: n is valid
-		int sum = 0;
-		if(n > 0){
-			for(int i=1;i<=n;i++)
-				sum+= p.getTerm(i);
-		}
-		System.out.println("Sum of first " + n + " terms in " + p.toString() + " is: " + sum); 
+		double sum = p.firstValue(); 
+		for (int i=1; i<n; i++) 
+			sum= sum + p.nextValue(); 
+		
+		//... add code to compute, and assign to sum, the sum
+		  //  of the first n terms in p
+		    
+		System.out.println("Sum of first " + n + " terms in " 
+				+ p + " is: " + sum); 
 	}
+
+
 }

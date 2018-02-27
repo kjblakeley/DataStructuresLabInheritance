@@ -10,18 +10,22 @@ public class Arithmetic extends Progression {
 	
 	@Override
 	public double nextValue() {
+		if(firstValueFlag = false)
+			throw new IllegalStateException("Invalid; firstValue() hasn't been called") ;
+		
 		current = current + commonDifference; 
 		return current;
 	}
-	
-	@Override
-	public String toString(){
-		return "Arith(3,2)";
-	}
-	
-//	@Override
-//	public double getTerm(int n){
-//		return nextValue()-2;
-//	}
+	public double getTerm(int n) throws IndexOutOfBoundsException { 
+		if (n <= 0) 
+			throw new IndexOutOfBoundsException("printAllTerms: Invalid argument value = " + n); 
 
+		double value = this.firstValue()+ (this.commonDifference* n-1);
+		
+		return value; 
+	} 
+	
+	public String toString(){
+		return "Arith("+(int)this.firstValue() +"," +(int)this.commonDifference+")";
+	}
 }
